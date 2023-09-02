@@ -16,16 +16,6 @@
 
 Welcome to the AI Voice Cloning project, where cutting-edge artificial intelligence techniques are harnessed to create remarkably lifelike synthetic voices. 
 
-
-## Table of Contents
-
-- [Key Features](#keyfeatures)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Key Features
 
 - **Voice Synthesis**: Our system allows you to generate synthetic voices that sound remarkably similar to human voices.
@@ -35,6 +25,15 @@ Welcome to the AI Voice Cloning project, where cutting-edge artificial intellige
 - **Easy Integration**: Integrate our AI voice cloning technology seamlessly into your applications, products, or services.
 
 - **Open Source**: We believe in collaboration and progress. This project is open source, encouraging contributions from the AI community.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
 
 ## Prerequisites
 
