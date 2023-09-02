@@ -19,7 +19,7 @@ Welcome to the AI Voice Cloning project, where cutting-edge artificial intellige
 
 ## Table of Contents
 
-- [Key Features](#key features)
+- [Key Features](#keyfeatures)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
