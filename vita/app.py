@@ -1,14 +1,23 @@
-from transformers import AutoProcessor, BarkModel
-import scipy
+import os
+import torch
+from TTS.api import TTS
 
-processor = AutoProcessor.from_pretrained("suno/bark")
-model = BarkModel.from_pretrained("suno/bark")
 
-voice_preset = "v2/tr_speaker_4"
+# Get device
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
-inputs = processor("Bu gerçekten de işe yarıyor mu?", voice_preset=voice_preset)
+# List available 🐸TTS models and choose the first one
+model_name = "tts_models/multilingual/multi-dataset/your_tts"
+# Init TTS
+tts = TTS(model_name).to(device)
 
-audio_array = model.generate(**inputs)
-audio_array = audio_array.cpu().numpy().squeeze()
-sample_rate = model.generation_config.sample_rate
-scipy.io.wavfile.write("output.wav", rate=sample_rate, data=audio_array)
+# Run TTS
+# ❗ Since this model is multi-speaker and multi-lingual, we must set the target speaker and the language
+
+# Text to speech to a file
+tts.tts_to_file(
+    text="Hello world, I am ata turhan. I am speaking english!",
+    speaker_wav="bark_voices/speaker/ata.wav",
+    language="en",
+    file_path="output.wav",
+)
