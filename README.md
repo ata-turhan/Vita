@@ -12,19 +12,22 @@
 
 <hr>
 
-# Vita - Voice Cloning
+# Vita - Various Toolbox
 
-Welcome to the AI Voice Cloning project, where cutting-edge artificial intelligence techniques are harnessed to create remarkably lifelike synthetic voices. 
+Welcome to the Vita (β) Toolbox! This repository serves as a collection of various mini tools designed to simplify and enhance different tasks and processes. Whether you're a developer, data scientist, or just someone looking to streamline everyday tasks, you'll find something useful here.
 
 ## Key Features
 
-- **Voice Synthesis**: Our system allows you to generate synthetic voices that sound remarkably similar to human voices.
+- **Image Editor**: Our Image Editor enables comprehensive image editing with a user-friendly interface.
 
-- **Customization**: Fine-tune the generated voices to match specific requirements, from pitch and tone to accent and language.
+- **Video Editor**: The Video Editor empowers you to create and edit stunning videos effortlessly.
 
-- **Easy Integration**: Integrate our AI voice cloning technology seamlessly into your applications, products, or services.
+- **Convert PDF to Image**: Easily convert PDF documents into various image formats using our PDF to Image Converter.
 
-- **Open Source**: We believe in collaboration and progress. This project is open source, encouraging contributions from the AI community.
+- **Grammar Fixer and Spelling Correction**: Improve written content with our Grammar Fixer and Spelling Correction tool.
+
+- **Internet Downloader**: Simplify web content retrieval and management with our Internet Downloader.
+
 
 ## Table of Contents
 
