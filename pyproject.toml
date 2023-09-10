@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "vita"
+version = "0.1.0"
+description = "Welcome to the Vita (β) Toolbox! This repository serves as a collection of various mini tools designed to simplify and enhance different tasks and processes"
+authors = ["fotino21 <ataturhan21@gmail.com>"]
+license = "GPL v3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
+pytube = "^15.0.0"
+streamlit = "^1.26.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
