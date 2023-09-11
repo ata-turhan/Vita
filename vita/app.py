@@ -25,17 +25,19 @@ def download_video(link: str, path: str = "", choice: int = 2):
     elif choice == 2:
         stream = yt.streams.filter(file_extension="mp4").first()
     path = stream.download(output_path=path)
+    st.session_state.progress_bar.progress(1.0, text="YouTube video downloaded")
     st.balloons()
     st.write("Your video downloaded here: ", path)
 
 
 def main():
     youtube_link = st.text_input("Enter Youtube video link: ")
+    if check_youtube_link(youtube_link):
+        st.video(youtube_link)
     if st.button("Download the video"):
         if not check_youtube_link(youtube_link):
             st.write("Please write a valid Youtube link")
             return
-        st.video(youtube_link)
         path = ""
         choice = 2
         download_video(youtube_link, path, choice)
