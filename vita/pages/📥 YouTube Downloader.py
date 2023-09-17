@@ -1,6 +1,8 @@
+import os
 import re
 import streamlit as st
 from pytube import YouTube
+from modules.utils import add_bg_from_local, set_page_config, local_css
 
 if "progress_bar" not in st.session_state:
     st.session_state.progress_bar = None
@@ -13,7 +15,7 @@ def show_percent_progress(stream, chunk, bytes_remaining):
 
 
 def check_youtube_link(link: str):
-    return re.match("^https://www.youtube.com/watch?.+", link)
+    return re.match("^https://www.youtube.com/(watch|shorts)", link)
 
 
 def download_video(link: str, path: str = "", choice: int = 2):
@@ -31,16 +33,38 @@ def download_video(link: str, path: str = "", choice: int = 2):
 
 
 def main():
-    youtube_link = st.text_input("Enter Youtube video link: ")
-    if check_youtube_link(youtube_link):
-        st.video(youtube_link)
-    if st.button("Download the video"):
-        if not check_youtube_link(youtube_link):
-            st.write("Please write a valid Youtube link")
-            return
-        path = ""
-        choice = 2
-        download_video(youtube_link, path, choice)
+    set_page_config()
+
+    local_css()
+
+    background_img_path = os.path.join("static", "background", "Toolbox Logo.png")
+    sidebar_background_img_path = os.path.join(
+        "static", "background", "Lila Gradient.png"
+    )
+    page_markdown = add_bg_from_local(
+        background_img_path=background_img_path,
+        sidebar_background_img_path=sidebar_background_img_path,
+    )
+    st.markdown(page_markdown, unsafe_allow_html=True)
+
+    st.markdown(
+        """<h1 style='text-align: center; color: black; font-size: 40px;'> Welcome to YouTube Downloader 📥 </h1> \
+        <br>""",
+        unsafe_allow_html=True,
+    )
+    _, center_col, _ = st.columns([1, 5, 1])
+
+    with center_col:
+        youtube_link = st.text_input("Enter Youtube video link: ")
+        if check_youtube_link(youtube_link):
+            st.video(youtube_link)
+        if st.button("Download the video"):
+            if not check_youtube_link(youtube_link):
+                st.write("Please write a valid Youtube link")
+                return
+            path = ""
+            choice = 2
+            download_video(youtube_link, path, choice)
 
 
 if __name__ == "__main__":
