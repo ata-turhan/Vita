@@ -20,7 +20,12 @@ def check_youtube_link(link: str):
 
 def download_video(link: str, path: str = "", choice: int = 2):
     st.session_state.progress_bar = st.progress(0, text="YouTube video is downloaded")
-    yt = YouTube(link, on_progress_callback=show_percent_progress)
+    yt = YouTube(
+        link,
+        on_progress_callback=show_percent_progress,
+        # use_oauth=True,
+        # allow_oauth_cache=True,
+    )
     stream = ""
     if choice == 1:
         stream = yt.streams.filter(only_audio=True).first()
