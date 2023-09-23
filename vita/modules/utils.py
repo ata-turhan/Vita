@@ -1,12 +1,20 @@
 import base64
-from datetime import datetime
 
-import pandas as pd
 import streamlit as st
 
 
 @st.cache_data
 def add_bg_from_local(background_img_path, sidebar_background_img_path):
+    """
+    Generate CSS code to set background images for Streamlit application elements.
+
+    Args:
+        background_img_path (str): The file path to the background image for the main application.
+        sidebar_background_img_path (str): The file path to the background image for the sidebar.
+
+    Returns:
+        str: A string containing CSS code to set background images for the main application and sidebar.
+    """
     with open(background_img_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
     with open(sidebar_background_img_path, "rb") as image_file:
@@ -26,6 +34,15 @@ def add_bg_from_local(background_img_path, sidebar_background_img_path):
 
 
 def set_page_config():
+    """
+    Configure Streamlit's page settings including title, icon, sidebar state, and menu items.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     st.set_page_config(
         page_title="Vita Toolbox",
         page_icon="🧰",
@@ -42,6 +59,17 @@ def set_page_config():
 
 
 def local_css(file_name=None):
+    """
+    Add custom CSS styles to a Streamlit application, either by providing a file name or using inline CSS.
+
+    Args:
+        file_name (str, optional): The name or path of a CSS file to include. If provided, the function reads
+        the CSS content from the file and adds it to the application. If not provided, default CSS for adjusting
+        the sidebar width is added.
+
+    Returns:
+        None
+    """
     if file_name:
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
