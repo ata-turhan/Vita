@@ -4,7 +4,9 @@ import streamlit as st
 
 
 @st.cache_data
-def add_bg_from_local(background_img_path, sidebar_background_img_path):
+def add_bg_from_local(
+    background_img_path: str, sidebar_background_img_path: str
+) -> str:
     """
     Generate CSS code to set background images for Streamlit application elements.
 
