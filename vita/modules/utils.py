@@ -35,7 +35,7 @@ def add_bg_from_local(
     </style>"""
 
 
-def set_page_config():
+def set_page_config() -> None:
     """
     Configure Streamlit's page settings including title, icon, sidebar state, and menu items.
 
@@ -60,7 +60,7 @@ def set_page_config():
     )
 
 
-def local_css(file_name=None):
+def local_css(file_name: str = None) -> None:
     """
     Add custom CSS styles to a Streamlit application, either by providing a file name or using inline CSS.
 
