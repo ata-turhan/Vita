@@ -2,6 +2,7 @@ import os
 
 import streamlit as st
 from modules.utils import add_bg_from_local, local_css, set_page_config
+from PIL import Image
 
 
 def main():
@@ -30,6 +31,7 @@ def main():
     image = st.file_uploader("Choose a image to edit")
     if image is not None:
         st.image(image)
+        Image.open(image)
 
 
 if __name__ == "__main__":
