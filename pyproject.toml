@@ -11,6 +11,7 @@ python = ">=3.9,<3.9.7 || >3.9.7,<3.12"
 pytube = "^15.0.0"
 streamlit = "^1.26.0"
 opencv-python = "^4.8.1.78"
+removebg = "^0.4"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.4.0"

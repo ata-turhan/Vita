@@ -5,6 +5,7 @@ import numpy as np
 import streamlit as st
 from modules.utils import add_bg_from_local, local_css, set_page_config
 from PIL import Image, ImageEnhance, ImageFilter
+from removebg import RemoveBg
 
 
 def main():
@@ -141,10 +142,12 @@ def main():
                             ImageFilter.GaussianBlur(filter_blur_strength)
                         )
         elif option == "Background Remover":
-            if st.button("Remove the background"):
-                img.save("input.jpg")
-                os.system('backgroundremover -i "input.jpg", -o "output.jpg"')
-                # edited_img = Image.open("output.jpg")
+            rmbg = RemoveBg(st.secrets["removebg_api_key"], "error.log")
+            img.save("input.jpg")
+            rmbg.remove_background_from_img_file(
+                img_file_path="input.jpg",
+            )
+            edited_img = Image.open("input.jpg_no_bg.png")
     if img is not None:
         col1, col2 = st.columns(2, gap="large")
         col1.subheader("Before")

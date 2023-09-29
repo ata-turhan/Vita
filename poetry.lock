@@ -974,6 +974,20 @@ attrs = ">=22.2.0"
 rpds-py = ">=0.7.0"
 
 [[package]]
+name = "removebg"
+version = "0.04"
+description = "A Python API wrapper for removing background using remove.bg's API"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "removebg-0.04.tar.gz", hash = "sha256:278eed1f61f90a0990582556b436ed232553936d6531562593d747f202be6d81"},
+]
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
 name = "requests"
 version = "2.31.0"
 description = "Python HTTP for Humans."
@@ -1427,4 +1441,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.9.7 || >3.9.7,<3.12"
-content-hash = "89095c9325974ac29e899d98363bf997e2e6875d6b64ec558d5c7fe15b18032a"
+content-hash = "d38571fae763c96aff6c82647461cdf8fbd3469e104c1c6afbc69a3413e4af79"
