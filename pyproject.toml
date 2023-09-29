@@ -7,7 +7,7 @@ license = "GPL v3"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
+python = ">=3.9,<3.9.7 || >3.9.7,<3.12"
 pytube = "^15.0.0"
 streamlit = "^1.26.0"
 opencv-python = "^4.8.1.78"

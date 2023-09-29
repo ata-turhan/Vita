@@ -46,11 +46,7 @@ def main():
         center_col.header("Settings")
         option = st.selectbox(
             "Options",
-            [
-                "<Select>",
-                "Filters",
-                "Image Corrections",
-            ],
+            ["<Select>", "Filters", "Image Corrections", "Background Remover"],
         )
         if option == "Filters":
             filter_choice = st.selectbox(
@@ -144,17 +140,22 @@ def main():
                         edited_img = edited_img.filter(
                             ImageFilter.GaussianBlur(filter_blur_strength)
                         )
+        elif option == "Background Remover":
+            if st.button("Remove the background"):
+                img.save("input.jpg")
+                os.system('backgroundremover -i "input.jpg", -o "output.jpg"')
+                # edited_img = Image.open("output.jpg")
     if img is not None:
         col1, col2 = st.columns(2, gap="large")
         col1.subheader("Before")
         col1.image(
             img,
-            width=350,
+            width=450,
         )
         col2.subheader("After")
         col2.image(
             edited_img,
-            width=350,
+            width=450,
         )
 
 

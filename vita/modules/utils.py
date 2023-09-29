@@ -48,7 +48,7 @@ def set_page_config() -> None:
     st.set_page_config(
         page_title="Vita Toolbox",
         page_icon="🧰",
-        # layout="wide",
+        layout="wide",
         initial_sidebar_state="expanded",
         menu_items={
             "Get Help": "https://github.com/invictus-21/Vita/blob/main/README.md",
