@@ -1,8 +1,8 @@
 import os
 
-import moviepy.editor as pyedit
 import streamlit as st
 from modules.utils import add_bg_from_local, local_css, set_page_config
+from textblob import TextBlob
 
 
 def main():
@@ -23,31 +23,21 @@ def main():
     st.markdown(page_markdown, unsafe_allow_html=True)
 
     st.markdown(
-        """<h1 style='text-align: center; color: black; font-size: 40px;'> Welcome to Video Editor 🎬 </h1> \
+        """<h1 style='text-align: center; color: black; font-size: 40px;'> Welcome to Spelling Correction 🖌️ </h1> \
         <br>""",
         unsafe_allow_html=True,
     )
+    _, before, _, after, _ = st.columns(5)
 
-    video = st.file_uploader(
-        "Choose a video to edit",
-        type=["mp4", "mov", "avi"],
-        accept_multiple_files=False,
-    )
-    if video is None:
-        return
+    before.subheader("Original text")
+    text = before.text_area("Please write the text to be corrected")
 
-    st.write(video.name)
-    edited_video = pyedit.VideoFileClip(video.name)
-    with st.sidebar:
-        _, center_col, _ = st.columns(3)
-        center_col.header("Settings")
+    after.subheader("Corrected text")
 
-        speed = st.slider("Speed up the video", 1, 5)
-        edited_video = edited_video.speedx(speed)
-
-        edited_video.write_videofile("video.mp4")
-
-    st.video("video.mp4")
+    if text:
+        sentence = TextBlob(text)
+        correction = sentence.correct()
+        after.write(correction)
 
 
 if __name__ == "__main__":
